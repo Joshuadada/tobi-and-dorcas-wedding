@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", Arial, sans-serif;
+  --color-forest: #063d2e;
+  --color-deep-forest: #052a20;
+  --color-champagne: #c99a45;
+  --color-soft-gold: #e4c77e;
+  --color-warm-ivory: #faf5e9;
+  --color-cream: #fffdf7;
+  --color-ink: #102a20;
+}
+
+:root {
+  font-family: "DM Sans", Arial, sans-serif;
+  color: #18372b;
+  background: #fbf8f0;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+}
+
+button,
+a,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
+::selection {
+  color: #fffdf7;
+  background: #063d2e;
+}
+
+:focus-visible {
+  outline: 2px solid #c99a45;
+  outline-offset: 4px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-blur {
+  filter: blur(18px) brightness(0.72);
+  transform: scale(1.12);
+}
+
+.gallery-dialog::backdrop {
+  background: rgb(4 25 19 / 88%);
+  backdrop-filter: blur(8px);
+}
+
+.gallery-dialog {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #fffdf7;
+  max-width: min(94vw, 1100px);
+  max-height: 92dvh;
+  overflow: visible;
+}
+
+.gallery-dialog[open] {
+  display: grid;
+  place-items: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
