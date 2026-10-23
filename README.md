@@ -40,6 +40,21 @@ deployed URL. Vercel and Netlify deployment URL variables are also detected.
 
 ## RSVP
 
-The RSVP form validates responses in the browser only. It does not send or save
-submissions; guests can contact Deborah or Favour using the phone links on the
-page.
+The RSVP form stores guest names, attendance responses, and optional notes in
+Supabase. Copy `.env.example` to `.env` and set `VITE_SUPABASE_URL` and
+`VITE_SUPABASE_ANON_KEY` to the Supabase project URL and publishable/anon key.
+These are public browser credentials; never put a Supabase `service_role` key
+in a `VITE_` variable.
+
+Before accepting RSVPs, run the SQL in
+`supabase/migrations/20261023000000_create_rsvps.sql` in the Supabase SQL Editor.
+It creates the `public."tobi-rsvps"` table, applies row-level security, and permits
+anonymous inserts only; guests cannot read submitted responses through the
+website.
+
+If you already ran the earlier version of this SQL and have a `public.rsvps`
+table, rename it in the SQL Editor with:
+
+```sql
+alter table public.rsvps rename to "tobi-rsvps";
+```

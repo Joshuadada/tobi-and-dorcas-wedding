@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { wedding } from '../config/wedding'
+import { supabase } from '../lib/supabase'
 
 type Attendance = 'yes' | 'no' | ''
 
@@ -9,19 +10,51 @@ export function RSVP() {
   const [message, setMessage] = useState('')
   const [errors, setErrors] = useState<{ guestName?: string; attendance?: string }>({})
   const [confirmedName, setConfirmedName] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     const nextErrors: typeof errors = {}
     const trimmedName = guestName.trim()
 
     if (!trimmedName) nextErrors.guestName = 'Please enter your name.'
+    else if (trimmedName.length > 120) {
+      nextErrors.guestName = 'Please keep your name under 120 characters.'
+    }
     if (!attendance) nextErrors.attendance = 'Please choose an attendance response.'
 
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length > 0) return
 
-    setConfirmedName(trimmedName)
+    if (!supabase) {
+      setSubmitError('RSVP submissions are not configured right now. Please contact us by phone.')
+      return
+    }
+
+    setIsSubmitting(true)
+    setSubmitError('')
+
+    try {
+      const { error } = await supabase.from('tobi-rsvps').insert({
+        guest_name: trimmedName,
+        attendance,
+        message: message.trim() || null,
+      })
+
+      if (error) {
+        console.error('Unable to save RSVP:', error)
+        setSubmitError('We could not send your RSVP. Please try again or contact us by phone.')
+        return
+      }
+
+      setConfirmedName(trimmedName)
+    } catch (error) {
+      console.error('Unable to save RSVP:', error)
+      setSubmitError('We could not send your RSVP. Please try again or contact us by phone.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -76,14 +109,18 @@ export function RSVP() {
                 Thank you, {confirmedName}.
               </h3>
               <p className="mt-4 text-sm leading-7 text-white/70">
-                Your response has been checked on this page, but has not been
-                sent to the couple. Please call Deborah or Favour using the
-                numbers here to share your RSVP.
+                Your response has been sent to the couple. We look forward to
+                celebrating with you.
               </p>
               <button
                 type="button"
                 className="mt-6 min-h-11 border-b border-soft-gold pb-1 text-[10px] font-semibold tracking-[0.15em] text-soft-gold"
-                onClick={() => setConfirmedName('')}
+                onClick={() => {
+                  setConfirmedName('')
+                  setGuestName('')
+                  setAttendance('')
+                  setMessage('')
+                }}
               >
                 SUBMIT ANOTHER RESPONSE
               </button>
@@ -97,10 +134,12 @@ export function RSVP() {
                 id="guest-name"
                 name="name"
                 required
+                maxLength={120}
                 autoComplete="name"
                 value={guestName}
                 onChange={(event) => {
                   setGuestName(event.target.value)
+                  setSubmitError('')
                   if (errors.guestName) setErrors((current) => ({ ...current, guestName: undefined }))
                 }}
                 aria-invalid={Boolean(errors.guestName)}
@@ -139,6 +178,7 @@ export function RSVP() {
                         checked={attendance === option.value}
                         onChange={() => {
                           setAttendance(option.value as Attendance)
+                          setSubmitError('')
                           if (errors.attendance) setErrors((current) => ({ ...current, attendance: undefined }))
                         }}
                         aria-invalid={Boolean(errors.attendance)}
@@ -163,21 +203,32 @@ export function RSVP() {
                 id="guest-message"
                 name="message"
                 rows={3}
+                maxLength={1000}
                 value={message}
-                onChange={(event) => setMessage(event.target.value)}
+                onChange={(event) => {
+                  setMessage(event.target.value)
+                  setSubmitError('')
+                }}
                 className="mt-2 w-full resize-y border border-white/25 bg-transparent px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-soft-gold focus:outline-none"
                 placeholder="Send the couple a message"
               />
 
+              {submitError && (
+                <p className="mt-4 text-xs leading-5 text-[#f0c0a6]" role="alert">
+                  {submitError}
+                </p>
+              )}
+
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="mt-6 inline-flex min-h-12 w-full items-center justify-center bg-soft-gold px-6 text-[10px] font-semibold tracking-[0.17em] text-deep-forest transition-colors hover:bg-cream sm:w-auto"
               >
-                CHECK MY RESPONSE
+                {isSubmitting ? 'SENDING RSVP…' : 'SEND MY RSVP'}
               </button>
               <p className="mt-4 text-[11px] leading-5 text-white/50">
-                This form only checks your response on this device. It does not
-                send or store your RSVP.
+                Your RSVP will be securely stored so the couple can plan for
+                your response.
               </p>
             </form>
           )}
