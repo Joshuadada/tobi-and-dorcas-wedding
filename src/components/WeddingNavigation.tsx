@@ -6,6 +6,7 @@ const links = [
   { href: '#dress-code', label: 'Dress Code' },
   { href: '#gallery', label: 'Gallery' },
   { href: '#rsvp', label: 'RSVP' },
+  { href: '#registry', label: 'Gifts' },
 ]
 
 export function WeddingNavigation() {
@@ -24,7 +25,7 @@ export function WeddingNavigation() {
         </a>
 
         <p className="hidden text-[10px] font-semibold tracking-[0.24em] text-[#647267] sm:block">
-          LAGOS <span className="mx-2 text-champagne">·</span> 21 NOVEMBER 2026
+          #REHOBOTH2026 <span className="mx-2 text-champagne">·</span> LAGOS <span className="mx-2 text-champagne">·</span> 21 NOVEMBER 2026
         </p>
 
         <nav aria-label="Main navigation" className="hidden items-center gap-7 md:flex">

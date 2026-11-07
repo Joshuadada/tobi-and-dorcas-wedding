@@ -5,6 +5,7 @@ import { WeddingDetails } from './components/WeddingDetails'
 import { DressCode } from './components/DressCode'
 import { PhotoGallery } from './components/PhotoGallery'
 import { RSVP } from './components/RSVP'
+import { GiftRegistry } from './components/GiftRegistry'
 import { WeddingFAQ } from './components/WeddingFAQ'
 import { WeddingFooter } from './components/WeddingFooter'
 import { useRevealOnScroll } from './hooks/useRevealOnScroll'
@@ -22,6 +23,7 @@ function App() {
         <DressCode />
         <PhotoGallery />
         <RSVP />
+        <GiftRegistry />
         <WeddingFAQ />
       </main>
       <WeddingFooter />

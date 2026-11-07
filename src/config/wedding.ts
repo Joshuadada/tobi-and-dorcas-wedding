@@ -2,14 +2,15 @@ export const wedding = {
   bride: 'Dorcas Toluwani',
   groom: 'Oluwatobi David',
   shortNames: 'Dorcas & Oluwatobi',
+  caption: 'Rehoboth 2026',
+  hashtag: '#Rehoboth2026',
   date: 'Saturday, 21 November 2026',
   dateShort: '21 · 11 · 2026',
   eventTime: '2026-11-21T11:00:00+01:00',
   city: 'Lagos, Nigeria',
   ceremonyTime: '11:00 AM prompt',
   venue: 'Royal Rex Hotel & Spa',
-  address:
-    '38/40 Olatunji Idowu Street, off Alli Dada Street Bus Stop, Ago Palace Way, Okota, Lagos, Nigeria.',
+  address: 'Lagos, Nigeria',
   dressCode: 'Gold, White & Green',
   families: [
     'Pastor Peter & Deaconess Comfort Ogunlade',
@@ -20,7 +21,12 @@ export const wedding = {
     { name: 'Favour', phone: '08035020829', tel: '+2348035020829' },
   ],
   directionsUrl:
-    'https://www.google.com/maps/search/?api=1&query=Royal%20Rex%20Hotel%20%26%20Spa%2C%2038%2F40%20Olatunji%20Idowu%20Street%2C%20off%20Alli%20Dada%20Street%20Bus%20Stop%2C%20Ago%20Palace%20Way%2C%20Okota%2C%20Lagos%2C%20Nigeria',
+    'https://www.google.com/maps/search/?api=1&query=Royal%20Rex%20Hotel%20%26%20Spa%2C%20Lagos%2C%20Nigeria',
+  account: {
+    bank: 'GTB',
+    accountNumber: '0215707731',
+    accountName: 'Ogunlade Dorcas',
+  },
 } as const
 
 export const storyMoments = [
@@ -92,8 +98,11 @@ export const weddingQuestions = [
   },
   {
     question: 'Where is the wedding taking place?',
-    answer:
-      'At Royal Rex Hotel & Spa, 38/40 Olatunji Idowu Street, off Alli Dada Street Bus Stop, Ago Palace Way, Okota, Lagos, Nigeria.',
+    answer: 'At Royal Rex Hotel & Spa, Lagos, Nigeria.',
+  },
+  {
+    question: 'What is the wedding caption or hashtag?',
+    answer: 'Our wedding caption and hashtag is #Rehoboth2026.',
   },
   {
     question: 'What time should guests arrive?',
@@ -103,6 +112,11 @@ export const weddingQuestions = [
   {
     question: 'What is the dress code?',
     answer: 'Gold, White & Green.',
+  },
+  {
+    question: 'How can I send a wedding gift?',
+    answer:
+      'Your presence and prayers are our greatest gifts. For friends and family who wish to bless us financially, our account details are: GTB, 0215707731 (Ogunlade Dorcas).',
   },
   {
     question: 'How can I RSVP?',

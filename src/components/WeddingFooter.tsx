@@ -19,6 +19,9 @@ export function WeddingFooter() {
         <p className="mt-7 font-display text-2xl">
           {wedding.shortNames}
         </p>
+        <p className="mt-2 text-[10px] font-semibold tracking-[0.24em] text-soft-gold">
+          {wedding.hashtag}
+        </p>
         <p className="mt-2 text-[10px] tracking-[0.2em] text-white/55">
           {wedding.dateShort}
         </p>

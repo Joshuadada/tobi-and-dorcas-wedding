@@ -80,9 +80,14 @@ export function WeddingHero() {
 
       <div className="relative mx-auto grid min-h-[calc(100svh-4.5rem)] max-w-7xl items-center gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.04fr_0.96fr] md:gap-12 md:py-16 lg:px-12 lg:py-20">
         <div className="relative z-10 max-w-2xl" data-reveal>
-          <p className="mb-5 text-[10px] font-semibold tracking-[0.27em] text-soft-gold sm:text-xs">
-            TOGETHER WITH OUR FAMILIES
-          </p>
+          <div className="mb-5 flex flex-wrap items-center gap-3">
+            <span className="inline-block border border-soft-gold/40 bg-soft-gold/10 px-3 py-1 text-[9px] font-semibold tracking-[0.25em] text-soft-gold sm:text-[10px]">
+              {wedding.hashtag}
+            </span>
+            <span className="text-[10px] font-semibold tracking-[0.27em] text-soft-gold sm:text-xs">
+              TOGETHER WITH OUR FAMILIES
+            </span>
+          </div>
           <h1
             id="hero-title"
             className="font-display text-[clamp(3.4rem,10vw,7.1rem)] font-normal leading-[0.83] tracking-[-0.055em] text-cream"
@@ -113,6 +118,8 @@ export function WeddingHero() {
             <span>{wedding.date}</span>
             <span className="text-soft-gold" aria-hidden="true">✳</span>
             <span>{wedding.city}</span>
+            <span className="text-soft-gold" aria-hidden="true">✳</span>
+            <span>{wedding.caption}</span>
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
