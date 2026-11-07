@@ -74,7 +74,9 @@ export function PhotoGallery() {
               type="button"
               className={`group relative isolate overflow-hidden bg-deep-forest text-left ${
                 photo.shape === 'landscape' ? 'aspect-[1.12] sm:aspect-[1.15]' : 'aspect-[0.78]'
-              } ${index === 1 ? 'sm:mt-10' : ''} ${index === 4 ? 'sm:-mt-10' : ''}`}
+              } ${index === 1 ? 'sm:mt-10' : ''} ${index === 4 ? 'sm:-mt-10' : ''} ${
+                index === 6 ? 'col-span-2 sm:col-span-1 sm:col-start-2' : ''
+              }`}
               aria-label={`Open photo: ${photo.caption}`}
               onClick={() => setSelectedIndex(index)}
               data-reveal

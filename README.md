@@ -24,6 +24,7 @@ The browser-ready photo files live in `public/images/wedding/`:
 - `/images/wedding/IMG_3398.webp` — hero image and gallery
 - `/images/wedding/IMG_3446.webp` — “A favourite kind of day” gallery image
 - `/images/wedding/IMG_3396.webp`
+- `/images/wedding/IMG_3430.webp`
 - `/images/wedding/IMG_3431.webp`
 - `/images/wedding/IMG_3435.webp`
 - `/images/wedding/IMG_3406.webp`

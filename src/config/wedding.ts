@@ -72,6 +72,12 @@ export const weddingPhotos = [
     shape: 'portrait',
   },
   {
+    src: '/images/wedding/IMG_3430.webp',
+    alt: 'Dorcas from behind showing her elegant styled hair and detailed gown',
+    caption: 'Grace in every detail',
+    shape: 'portrait',
+  },
+  {
     src: '/images/wedding/IMG_3431.webp',
     alt: 'Dorcas and Oluwatobi looking at one another',
     caption: 'A look that says it all',
