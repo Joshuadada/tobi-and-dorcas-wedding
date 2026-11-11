@@ -43,7 +43,7 @@ export function WeddingDetails() {
               <p className="text-[9px] font-semibold tracking-[0.23em] text-champagne">
                 THE CEREMONY
               </p>
-              <p className="mt-3 font-display text-3xl text-forest">11:00 AM</p>
+              <p className="mt-3 font-display text-3xl text-forest">12:00 PM</p>
               <p className="mt-1 text-xs text-[#647267]">Prompt</p>
             </div>
             <div>

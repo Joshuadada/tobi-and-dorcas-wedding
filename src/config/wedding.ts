@@ -6,7 +6,7 @@ export const wedding = {
   hashtag: '#Rehoboth2026',
   date: 'Saturday, 21 November 2026',
   dateShort: '21 · 11 · 2026',
-  eventTime: '2026-11-21T11:00:00+01:00',
+  eventTime: '2026-11-21T12:00:00+01:00',
   city: 'Lagos, Nigeria',
   ceremonyTime: '12:00 PM prompt',
   venue: 'Lagos, Nigeria',
