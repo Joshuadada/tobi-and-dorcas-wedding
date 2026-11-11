@@ -8,8 +8,8 @@ export const wedding = {
   dateShort: '21 · 11 · 2026',
   eventTime: '2026-11-21T11:00:00+01:00',
   city: 'Lagos, Nigeria',
-  ceremonyTime: '11:00 AM prompt',
-  venue: 'Royal Rex Hotel & Spa',
+  ceremonyTime: '12:00 PM prompt',
+  venue: 'Lagos, Nigeria',
   address: 'Lagos, Nigeria',
   dressCode: 'Gold, White & Green',
   families: [
@@ -104,7 +104,7 @@ export const weddingQuestions = [
   },
   {
     question: 'Where is the wedding taking place?',
-    answer: 'At Royal Rex Hotel & Spa, Lagos, Nigeria.',
+    answer: 'Lagos, Nigeria.',
   },
   {
     question: 'What is the wedding caption or hashtag?',
@@ -113,7 +113,7 @@ export const weddingQuestions = [
   {
     question: 'What time should guests arrive?',
     answer:
-      'The ceremony begins at 11:00 AM prompt. Please plan your journey accordingly.',
+      'The ceremony begins at 12:00 PM prompt. Please plan your journey accordingly.',
   },
   {
     question: 'What is the dress code?',
