@@ -56,14 +56,6 @@ export function WeddingDetails() {
               <p className="mt-2 max-w-sm text-sm leading-6 text-[#647267]">
                 {wedding.address}
               </p>
-              <a
-                href={wedding.directionsUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-5 inline-flex min-h-10 items-center gap-2 border-b border-champagne pb-1 text-[10px] font-semibold tracking-[0.16em] text-forest transition-colors hover:text-champagne"
-              >
-                GET DIRECTIONS <span aria-hidden="true">↗</span>
-              </a>
             </div>
           </div>
         </div>
